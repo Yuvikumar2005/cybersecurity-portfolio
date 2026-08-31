@@ -1,42 +1,69 @@
-# Splunk Fraud Analysis Dashboard
+# 🔎 Splunk Fraud Analysis Dashboard
 
-## Overview
+## 📌 Overview
 
 This project focuses on analyzing transaction data using Splunk Enterprise to identify fraudulent transaction patterns and present the findings through an interactive dashboard.
 
-## Objective
+## 🎯 Objective
 
-The objective of this project was to ingest transaction data into Splunk, analyze fraudulent transactions using SPL queries, and create visualizations to identify patterns across different transaction attributes.
+The main objective of this project was to ingest transaction data into Splunk, analyze fraudulent transactions using SPL queries, and create visualizations to identify patterns across different transaction attributes.
 
-## Tools Used
+## 🛠️ Tools Used
 
 - Splunk Enterprise
 - SPL (Search Processing Language)
-- CSV dataset
+- CSV Dataset
 - Splunk Dashboard
 
-## Analysis Performed
+## 📊 Analysis Performed
+
+The analysis focused on:
 
 - Fraudulent transactions by category
-- Fraudulent transactions by age
+- Fraudulent transactions by age group
 - Fraudulent transactions by merchant
 - Fraudulent transactions by gender
-- Fraud trends across different months
-- Comparison of fraudulent activity across transaction attributes
+- Fraud trends across different transaction attributes
 
-## Skills Demonstrated
+## 🔍 SPL Queries
 
-- Data ingestion into Splunk
-- SPL query development
-- Security data analysis
-- Fraud pattern identification
-- Data visualization
-- Dashboard creation
+### Fraud by Category
 
-## Dashboard
+```spl
+index=fraud_data fraud=1
+| stats count by category
+| sort - count
 
-The final dashboard presents the analyzed fraud data using charts and tables to make important patterns easier to identify.
+     Fraud by Gender
+index=fraud_data fraud=1
+| stats count by gender
+| sort - count
 
-## Project Purpose
+      Fraud by Merchant 
+index=fraud_data fraud=1
+| stats count by merchant
+| sort - count
 
-This project was completed as a cybersecurity learning exercise to develop practical skills in security data analysis and SIEM-based investigation.
+      Fraud by Age
+index=fraud_data fraud=1
+| stats count by age
+| sort - count
+ ```
+## 📈 Dashboard
+The Splunk dashboard presents the analyzed fraud data using charts and tables to make important patterns easier to identify.
+
+## 📄 Project Files
+prepared_data(prepared_data).csv — Dataset used for analysis
+Fraud Detection Dashboard.pdf — Exported Splunk dashboard
+fraud_analysis_dashboard-pdf — Additional dashboard export
+
+## 🧠 Skills Demonstrated
+     Splunk Enterprise
+     SPL query development
+     Security data analysis
+     Fraud pattern identification
+     Data visualization
+     Dashboard creation
+
+## ⚠️ Disclaimer
+This project was completed as a cybersecurity learning exercise using a training dataset. It is intended for educational and portfolio purposes only.
